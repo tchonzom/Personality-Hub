@@ -1,0 +1,92 @@
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+
+}
+
+.menu-area a {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	color: white;
+	background-color: red;
+	height: 50px;
+	font-family: Oxygen;
+	font-weight: bold;
+	text-decoration: none;
+	text-transform: uppercase;
+
+}
+
+.menu-area a:hover {
+	background-color: tomato;
+	color: white;
+
+}
+
+.menu-area ul {
+	list-style: none;
+	display: flex;
+}
+
+.menu-area ul li {
+	position: relative;
+	width: 100%;
+	text-align: center;
+}
+
+.menu-area li:hover .dropdown-1 li {
+	top: 0;
+	display: block;
+}
+
+.dropdown-1 ul li {
+	display: none;
+	position: relative;
+}
+
+.dropdown-1 li{
+	display: none;
+}
+
+.dropdown-1 {
+	position: absolute;
+	display: flex;
+	flex-direction: column;
+	width: 100%;
+
+}
+
+.banner-area {
+	background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(healthFood.jpg);
+	-webkit-background-size: cover;
+	background-size: cover;
+	background-position: center center;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	height: calc(100vh - 50px);
+}
+
+.banner-area h2{
+	color: white;
+	font-size: 60px;
+	font-family: times new roman;
+}
+
+
+.banner-area h3{
+	color: white;
+	font-size: 20px;
+	font-family: monospace;
+	text-align: center;
+	text-overflow: 
+}
+
+.container {
+	
+}
+
+
+
