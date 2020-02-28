@@ -59,7 +59,7 @@
 }
 
 .banner-area {
-	background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(brains.jpg);
+	background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(brains.png);
 	-webkit-background-size: cover;
 	background-size: cover;
 	background-position: center center;
@@ -88,10 +88,6 @@
 	justify-content: center;
 	color: black;
 }
-
-
-
-
 
 
 

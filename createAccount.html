@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Create Account</title>
+	<link rel="stylesheet" type="text/css" href="quizStyleSheet.css">
+
+	<style type="text/css">
+
+		.banner {
+			display: flex;
+			align-content: center;
+			justify-content: center;
+			background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url('personality.png');
+			background-size: cover;
+			background-position: center;
+			height: 250px;
+		}
+		
+		.banner h2 {
+			text-align: center;
+			justify-content: center;
+			color: white;
+			height: 10%;
+			margin-top: 70px;
+			font-family: Times New Roman;
+			font-size: 64px;
+			font-weight: bold;			
+		}	
+
+		h5 {
+			font-family: "Arial", Gadget, sans-serif;
+			padding: 5px;
+			text-align: center;
+			margin-top: 100px;
+		}
+
+		.newUser {
+			display: flex;
+			justify-content: center;	
+		}
+
+		.newUser p {
+			color: black;
+			font-size: 18px;
+			font-family: "Arial", Gadget, sans-serif;
+			padding: 5px;
+		}
+
+		.button {
+			background-color: white;
+			border-style: groove;
+			border-width: 5px;
+			padding: 5px;
+			font-size: 16px;
+			align-content: right;
+			margin-top: 15px;
+			margin-left: 180px;
+		}
+
+		.button:hover {
+			background-color: #b0b0e8;
+		}
+
+		form {
+			margin-top: 20px;
+		}
+
+
+	</style>
+
+
+
+</head>
+<body>
+
+	<div class="menu-area">
+	 	<ul>
+	 		<li><a href="homepage.html">Home</a></li>
+			<li><a href="#">Quizzes</a>
+				<ul class="dropdown-1">
+					<li><a href="quiz1.html">Quiz 1</a></li>
+					<li><a href="#">Quiz 2</a></li>
+					<li><a href="#">Quiz Statistics</a></li>
+				</ul>
+			</li>
+			<li><a href="#">Games</a>
+				<ul class="dropdown-1">
+					<li><a href="#">Game 1</a></li>
+					<li><a href="#">Game 2</a></li>
+					<li><a href="#">Game Statistics</a></li>
+				</ul>
+			</li>
+			<li><a href="#">About Us</a>
+				<ul class="dropdown-1">
+						<li><a href="#">Our Story</a></li>
+						<li><a href="#">Members</a></li>
+						<li><a href="#">Contact</a></li>
+				</ul>
+			</li>
+			<li><a href="#">Account</a>
+				<ul class="dropdown-1">
+					<li><a href="createAccount.html">Create Account</a></li>
+					<li><a href="login.html">Login</a></li>
+				</ul>
+			</li>
+			<li><a href="#">Search</a></li>
+
+	 	</ul>
+	</div>
+
+	<div class="banner">
+		<h2>Create Account</h2>
+	</div>
+
+	<div class="newUser">
+		<br></br>
+		<form action="javascript:newUser();" method="GET">
+			<p><strong>Username:</strong> <input type="text" name="username" id="username" placeholder="Username..."></input><br></p>
+			<p><strong>Password:</strong> <input type="text" name="password" id="password" placeholder="Password..."></input><br></p>
+			<p><strong>First Name:</strong> <input type="text" name="firstName" id="firstName" placeholder="First Name..."></input><br></p>
+			<button class="button">Submit</button>
+		</form>
+	</div>	
+	<h5>Already have an account? <a href="login.html">Login Here</a>.</h5>
+
+
+	<script type="text/javascript">
+		function newUser() {
+			var url = "newPersonalityUser.php?";
+			
+			var username = document.getElementById("username").value;
+			var password = document.getElementById("password").value;
+			var firstName = document.getElementById("firstName").value;
+
+			if(username === "" | password === "" | firstName === "") {
+				alert("Error, please fill in all of the required boxes.");
+			}
+			else{ 
+				url += "username=" + username + "&password=" + password + "&firstName=" + firstName;
+				httpGetAsync( url, showStuff );
+			}			
+		}
+
+
+		function httpGetAsync(theUrl, foo) {	
+			var xmlHttp = new XMLHttpRequest();
+
+			xmlHttp.onreadystatechange = function() { 
+				if (xmlHttp.readyState == 4 && xmlHttp.status == 200)
+					foo(xmlHttp.responseText);
+			}
+			xmlHttp.open("GET", theUrl, true); 
+			xmlHttp.send(null);
+		}
+
+		function showStuff( text ) {
+			document.getElementById("results").innerHTML=text;
+		}
+
+
+	</script>
+
+
+	<div id="results"></div>
+
+</body>
+</html>
